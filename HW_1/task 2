@@ -1,0 +1,12 @@
+def find_cat(list_input):
+    for word in list_input:
+        if set('кот').intersection(set(word)) == set('кот'):
+            return True
+    return False
+
+list_input = [input().lower() for i in range(int(input()))]
+
+if find_cat(list_input):
+    print('МЯУ')
+else:
+    print('НЕТ')
