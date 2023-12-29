@@ -1,0 +1,10 @@
+try:
+    temp = float(input())
+    if temp < 15.5:
+        print('ХОЛОДНО')
+    elif 15.5 <= temp <= 28:
+        print('НОРМАЛЬНО')
+    else:
+        print('ЖАРКО')
+except ValueError:
+    print('Нужно было ввести число!')
