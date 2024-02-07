@@ -1,0 +1,22 @@
+class Accountant:
+    salary_pupa = 0
+    salary_lupa = 0
+    def give_salary(self, worker):
+        return worker.take_salary(self, int(input("Внесите сумму: ")))
+
+class Pupa:
+    def take_salary(self, number):
+        self.salary_pupa += number
+        return self.salary_pupa
+
+class Lupa:
+    def take_salary(self, number):
+        self.salary_lupa += number
+        return self.salary_lupa
+
+money = Accountant()
+money.give_salary(Lupa)
+money.give_salary(Lupa)
+print(money.give_salary(Lupa))
+money.give_salary(Pupa)
+print(money.give_salary(Pupa))
