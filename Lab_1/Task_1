@@ -1,3 +1,6 @@
+from itertools import zip_longest
+import operator
+
 class Accountant:
     salary_pupa = 0
     salary_lupa = 0
@@ -9,10 +12,17 @@ class Pupa:
         self.salary_pupa += number
         return self.salary_pupa
 
+    def do_work (self, spisok1, spisok2):
+        print(*[sum(i) for i in zip_longest(spisok1, spisok2, fillvalue=0)])
+
+
 class Lupa:
     def take_salary(self, number):
         self.salary_lupa += number
         return self.salary_lupa
+
+    def do_work(self, spisok1, spisok2):
+        print(*[operator.sub(i[0], i[1]) for i in zip_longest(spisok1, spisok2, fillvalue=0)])
 
 money = Accountant()
 money.give_salary(Lupa)
@@ -20,3 +30,9 @@ money.give_salary(Lupa)
 print(money.give_salary(Lupa))
 money.give_salary(Pupa)
 print(money.give_salary(Pupa))
+
+pupa = Pupa()
+pupa.do_work([1, 2, 3], [1, 1, 5])
+
+lupa = Lupa()
+lupa.do_work([1, 2, 3, 4], [1, 1, 5])
